@@ -2,5 +2,39 @@
 
 {% block content %}
 <br>
-<center><h1 style="color: maroon;">Formularios</h1></center>
+<center>
+    <h1 style="color: maroon;">Formularios</h1>
+</center>
+
+<form method="POST" action="/store" enctype="multipart/form-data">
+    Cedula:
+    <input type="number" name="txtCedula" id="txtCedula">
+    <br>
+    Nombres:
+    <input type="text" name="txtNombre" id="txtNombre">
+    <br>
+    Apellidos:
+    <input type="text" name="txtApellido" id="txtApellido">
+    <br>
+    Edad:
+    <input type="number" name="txtEdad" id="txtEdad">
+    <br>
+    Telefono:
+    <input type="number" name="txtTelefono" id="txtTelefono">
+    <br>
+    Email:
+    <input type="email" name="txtCorreo" id="txtCorreo">
+    <br>
+    Pregunta1:
+    <input type="text" name="txtPregunta1" id="txtPregunta1">
+    <br>
+    Pregunta2:
+    <input type="text" name="txtPregunta2" id="txtPregunta2">
+    <br>
+    Pregunta3:
+    <input type="text" name="txtPregunta3" id="txtPregunta3">
+    <input type="submit" value="Agegar">
+
+</form>
+
 {% endblock %}
