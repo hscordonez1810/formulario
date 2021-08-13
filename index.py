@@ -1,7 +1,8 @@
 from flask import Flask 
-from flask import render_template,request
+from flask import render_template,request,redirect
 import psycopg2
-
+from datetime import datetime
+from random import randint
 app= Flask(__name__)
 
 try:
@@ -35,6 +36,27 @@ def index():
     #conexion.close()
     return render_template('index.html')
 #@app.route('/')
+
+@app.route('/update',methods=['POST'])
+def update():
+    _nombre=request.form['txtNombre']
+    _apellido=request.form['txtApellido']
+    _edad=request.form['txtEdad']
+    _telefono=request.form['txtTelefono']
+    _correo=request.form['txtCorreo']
+    _pregunta1=request.form['txtPregunta1'] 
+    _pregunta2=request.form['txtPregunta2'] 
+    _pregunta3=request.form['txtPregunta3']
+    _cedula=request.form["txtCedula"]
+    query="UPDATE  Formulario SET nombre=%s,apellido=%s,edad=%s,telefno=%s,correo=%s,pregunta1=%s,pregunta2=%s,pregunta3=%s WHERE cedula=%s;"
+    datos=(_nombre,_apellido,_edad,_telefono,_correo,_pregunta1,_pregunta2,_pregunta3,_cedula)
+    #query="INSERT INTO Formulario (cedula,nombre,apellido,edad,telefno,correo,pregunta1,pregunta2,pregunta3) VALUES (1966617813,'Gloria Alejandra','Molina Ron',20,0928739478,'gloria@gmail.com','te gustan los gatos','como estas hoy','que vas a hacer') "
+    cur.execute(query,datos)
+    conexion.commit() 
+    return redirect('/almacenados')
+
+
+
 @app.route('/store', methods=['POST'])
 def storage():
     _cedula=request.form["txtCedula"]
@@ -58,7 +80,29 @@ def storage():
     return render_template('index.html')
 
 
+@app.route('/almacenados')
+def almacenados():
+    query="SELECT * FROM Formulario"
+    cur.execute(query)
+    formulario=cur.fetchall()
+    print(formulario)
+    conexion.commit()
+    return render_template('almacenados.html',formulario=formulario)
 
+@app.route('/destroy/<int:cedula>')
+def destroy(cedula):
+    cur=conexion.cursor()  
+    cur.execute("DELETE FROM Formulario WHERE cedula=%s",[cedula])
+    conexion.commit()
+    return redirect('/almacenados')
+
+
+@app.route('/edit/<int:cedula>')
+def edit(cedula): 
+    cur.execute("SELECT * FROM Formulario WHERE cedula=%s",[cedula])
+    formulario=cur.fetchall()
+    conexion.commit()
+    return render_template('edit.html',formulario=formulario)
 
 @app.route('/formularios_guardados')
 def formularios_guardados():

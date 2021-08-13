@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="../static/css/edit.css">
+<br>
+<center><h1 style="color: #d49e09;
+    font-weight: normal;
+    font-size: 40px;
+    font-family: Arial;
+    text-transform: uppercase;">Formularios Guardados</h1></center>
+<body>
+    <table style="width: 100% border 1px solid #000" class="table table-secondary">
+        <thead class="table-dark">
+            <tr> 
+                <th class="negro">Cedula</th>
+                <th class="negro">Nombres</th>
+                <th class="negro">Apellidos</th>
+                <th class="negro">Edad</th>
+                <th class="negro">Telefono</th>
+                <th class="negro">Correo</th>
+                <th class="negro">Pregunta1</th>
+                <th class="negro">Pregunta2</th>
+                <th class="negro">Pregunta3</th>
+                <th class="negro">Editar</th>
+                <th class="negro">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for formulario in formulario %}
+            <tr>
+                <td class="negro">{{formulario[0]}}</td>
+                <td class="negro">{{formulario[1]}}</td>
+                <td class="negro">{{formulario[2]}}</td>
+                <td class="negro">{{formulario[3]}}</td>
+                <td class="negro">{{formulario[4]}}</td>
+                <td class="negro">{{formulario[5]}}</td>
+                <td class="negro">{{formulario[6]}}</td>
+                <td class="negro">{{formulario[7]}}</td>
+                <td class="negro">{{formulario[8]}}</td>
+                <td class="negro"> 
+                    
+                    <a class="btn btn-primary" href="/edit/{{formulario[0]}}">Editar </a> 
+                    <td class="negro">
+                    <a class="btn btn-danger"  href="/destroy/{{formulario[0]}}">Delate</a>
+                    </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</body>
+
+
+{% endblock %}

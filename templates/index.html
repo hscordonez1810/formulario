@@ -1,12 +1,18 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+<link rel="stylesheet" href="../static/css/index.css">
 <br>
 <center>
-    <h1 style="color: maroon;">Formularios</h1>
+    <h1 style="color: #d49e09;
+    font-weight: normal;
+    font-size: 40px;
+    font-family: Arial;
+    text-transform: uppercase;">Formularios</h1>
 </center>
 
-<form method="POST" action="/store" enctype="multipart/form-data">
+<!-- <form method="POST" action="/store" enctype="multipart/form-data">
     Cedula:
     <input type="number" name="txtCedula" id="txtCedula">
     <br>
@@ -25,8 +31,10 @@
     Email:
     <input type="email" name="txtCorreo" id="txtCorreo">
     <br>
-    Pregunta1:
-    <input type="text" name="txtPregunta1" id="txtPregunta1">
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+        <textarea class="form-control" name="txtPregunta1" id="txtPregunta1"></textarea>
+    </div>
     <br>
     Pregunta2:
     <input type="text" name="txtPregunta2" id="txtPregunta2">
@@ -35,6 +43,130 @@
     <input type="text" name="txtPregunta3" id="txtPregunta3">
     <input type="submit" value="Agegar">
 
-</form>
+</form> -->
+
+
+
+<center>
+    <FORM method="POST" action="/store" enctype="multipart/form-data">
+
+        
+        <CENTER>
+            <TABLE class="table table-info" BORDER>    
+                <thead class="table-dark">
+                <center>
+                <TR>
+                    <TD class="blanco "><h5>QUE OPINA SOBRE EL COVID-19</h5></TD>
+                    <TD class="blanco"><h5>AQUI SUS RESPUESTAS.</h5></TD>
+                <TR/>
+            </thead> 
+                    <TR>
+                        <TD class="negro table-dark">Cedula:</TD>
+                        <TD class="negro table-secondary"> <INPUT TYPE="number" class="form-control" name="txtCedula" id="txtCedula" placeholder="escriba su Cedula" SIZE=18
+                                MAXLENGTH=18>
+                        </TD>
+                    <TR>
+
+                    <TR>
+                        <TD class="negro table-dark">Nombre:</TD>
+                        <TD class="negro table-secondary"> <INPUT TYPE="text" class="form-control" name="txtNombre" id="txtNombre" placeholder="Escriba sus Nombres" SIZE=18
+                                MAXLENGTH=18>
+                        </TD>
+                    <TR>
+                    <TR>
+                        <TD class="negro table-dark">Apellidos:</TD>
+                        <TD class="negro table-secondary"> <INPUT TYPE="text" class="form-control" name="txtApellido" id="txtApellido" placeholder="Escriba sus Apellidos" SIZE=48
+                                MAXLENGTH=48></TD>
+                    <TR>
+                    <TR>
+                        <TD class="negro table-dark">Edad:</TD>
+                        <TD class="negro table-secondary"> <INPUT TYPE="number" class="form-control" name="txtEdad" id="txtEdad" placeholder="Escriba su Edad" SIZE=48 MAXLENGTH=48>
+                        </TD>
+                    <TR>
+                    <TR>
+                        <TD class="negro table-dark">Telefono:</TD>
+                        <TD class="negro table-secondary"><INPUT TYPE="number" class="form-control" name="txtTelefono" id="txtTelefono" placeholder="Escriba su Numero de Celular" SIZE=19
+                                MAXLENGTH=19></TD>
+
+                    <TR>
+                        <TD class="negro table-dark">Correo:</TD>
+                        <TD class="negro table-secondary"> <INPUT TYPE="email" class="form-control" name="txtCorreo" id="txtCorreo" placeholder="Escriba su correo" SIZE=20
+                                MAXLENGTH=20>
+                        </TD>
+                    <TR>
+
+                        <TR>
+                            <TD class="negro table-dark">Cual es su opinion sobre el covid-19:</TD>
+                                    <TD class="negro table-secondary"> <INPUT TYPE="text" style="WIDTH: 950px; HEIGHT: 72px" size=12  class="form-control"   name="txtPregunta1" id="txtPregunta1"
+                                            placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47>
+                                    </TD>
+                        <TR>
+
+
+                    <!-- <TR>
+                        <TD>Cual es su opinion sobre el covid-19:</TD>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i
+                                    class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <TD> <textarea class="form-control" name="txtPregunta1" id="txtPregunta1"
+                                        placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47></textarea>
+                                </TD>
+                            </div>
+                        </div> -->
+                    <!-- <TR>
+
+                    <TR>
+                        <TD>Cual es su opinion sobre la cuarente:</TD>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i
+                                    class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <TD> <textarea class="form-control" name="txtPregunta2" id="txtPregunta2"
+                                        placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47></textarea>
+                                </TD>
+                            </div>
+                        </div>
+                    <TR> -->
+                        <TR>
+                            <TD class="negro table-dark">Cual es su opinion sobre la cuarente:</TD>
+                                    <TD class="negro table-secondary"> <INPUT TYPE="text" style="WIDTH: 950px; HEIGHT: 72px" size=12  class="form-control"   name="txtPregunta2" id="txtPregunta2"
+                                            placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47>
+                                    </TD>
+                        <TR>
+
+
+                    <!-- <TR>
+                        <TD>Que metodos de proteccion ante el covid-19 conoce:</TD>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i
+                                    class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <TD> <textarea class="form-control" name="txtPregunta3" id="txtPregunta3"
+                                        placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47></textarea>
+                                </TD>
+                            </div>
+                        </div> -->
+                        <TR>
+                            <TD class="negro table-dark">Que metodos de proteccion ante el covid-19 conoce:</TD>
+                                    <TD class="negro table-secondary"> <INPUT TYPE="text" style="WIDTH: 950px; HEIGHT: 72px" size=1  class="form-control"   name="txtPregunta3" id="txtPregunta3"
+                                            placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47>
+                                    </TD>  
+                        <TR>                             
+
+
+                    <TR>
+                        <TD class="negro table-dark"><B>Pulse aquí:</B></TD>
+                        <TD class="negro table-secondary" ALIGN=CENTER>
+                            <INPUT TYPE="submit" class="btn btn-success" VALUE="Agregar ">
+                            <INPUT TYPE="reset" class="btn btn-warning" VALUE="Borrar los datos">
+                        </TD>
+                    </TR>
+                    </center>
+                    
+            </TABLE>
+        </CENTER>
+    </FORM>
+</center>
 
 {% endblock %}
