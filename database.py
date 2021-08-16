@@ -1,7 +1,7 @@
 import psycopg2
 
 def abrirConexion():
-
+ try:
     conexion= psycopg2.connect(
     host = 'localhost',
     database = 'Formulario',
@@ -9,9 +9,12 @@ def abrirConexion():
     password  = '1810hsxd'
     )
     return conexion
+ except:
+    print('error al conectarse')
+    
 
-def cerrarConexion(con):
-    con.close() 
+def cerrarConexion(conexion):
+    conexion.close() 
 
 # Obtener los resultados como objetos Python
 #row = cur.fetchone()

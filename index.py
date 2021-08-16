@@ -1,21 +1,14 @@
 from flask import Flask 
 from flask import render_template,request,redirect
 import psycopg2
+from flask import flash
 from datetime import datetime
 from random import randint
+from database import abrirConexion,cerrarConexion
 app= Flask(__name__)
 
-try:
- conexion= psycopg2.connect(
-    host = 'localhost',
-    database = 'Formulario',
-    user = 'postgres',
-    password  = '1810hsxd'
-    )
-except psycopg2.Error as e:
-    print('ocurrio un error al conectarse a PostgresSQL',e)
+conexion= abrirConexion()
 
-cur = conexion.cursor()
 
 
 @app.route('/')
@@ -39,6 +32,7 @@ def index():
 
 @app.route('/update',methods=['POST'])
 def update():
+    cur= conexion.cursor()
     _nombre=request.form['txtNombre']
     _apellido=request.form['txtApellido']
     _edad=request.form['txtEdad']
@@ -59,11 +53,12 @@ def update():
 
 @app.route('/store', methods=['POST'])
 def storage():
+  try:
     _cedula=request.form["txtCedula"]
     _nombre=request.form['txtNombre']
     _apellido=request.form['txtApellido']
     _edad=request.form['txtEdad']
-    _telefono=request.form['txtTelefono']
+    _telefono=int(request.form['txtTelefono'])
     _correo=request.form['txtCorreo']
     _pregunta1=request.form['txtPregunta1'] 
     _pregunta2=request.form['txtPregunta2'] 
@@ -78,16 +73,26 @@ def storage():
     #storage()
     #conexion.close()
     return render_template('index.html')
+  except ValueError:
+     flash('esta ingresando datos erroneos')
+     return redirect('index.html')
+
+
 
 
 @app.route('/almacenados')
 def almacenados():
+    cur=conexion.cursor()
     query="SELECT * FROM Formulario"
     cur.execute(query)
     formulario=cur.fetchall()
     print(formulario)
     conexion.commit()
     return render_template('almacenados.html',formulario=formulario)
+
+
+
+
 
 @app.route('/destroy/<int:cedula>')
 def destroy(cedula):
@@ -99,6 +104,7 @@ def destroy(cedula):
 
 @app.route('/edit/<int:cedula>')
 def edit(cedula): 
+    cur=conexion.cursor()
     cur.execute("SELECT * FROM Formulario WHERE cedula=%s",[cedula])
     formulario=cur.fetchall()
     conexion.commit()

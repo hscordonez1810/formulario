@@ -24,35 +24,35 @@
                         <TR/>
                     </thead> 
                             <TR>
-                                <TD class="negro table-dark ">Cedula:</TD>
-                                <TD class="negro table-secondary"> <INPUT TYPE="number" value="{{formulario[0]}}" class="form-control"   name="txtCedula" id="txtCedula" placeholder="Escriba su Cedula" SIZE=18
-                                        MAXLENGTH=18>
+                                <TD class="negro table-dark" >Cedula:</TD>
+                                <TD class="negro table-secondary"> <INPUT TYPE="number" MIN="1000000000" MAX="10000000000"  value="{{formulario[0]}}" required class="form-control"   name="txtCedula" id="txtCedula" readonly=»readonly» placeholder="Escriba su Cedula" SIZE=18
+                                        MAXLENGTH=18 >
                                 </TD>
                             <TR>
                             <TR>
                                 <TD class="negro table-dark">Nombre:</TD>
-                                <TD class="negro table-secondary"> <INPUT TYPE="text" class="form-control" value="{{formulario[1]}}"  name="txtNombre" id="txtNombre" placeholder="Escriba sus Nombres" SIZE=18
+                                <TD class="negro table-secondary"> <INPUT TYPE="text" class="form-control" value="{{formulario[1]}}" required name="txtNombre" id="txtNombre" placeholder="Escriba sus Nombres" SIZE=18
                                         MAXLENGTH=18>
                                 </TD>
                             <TR>
                             <TR>
                                 <TD class="negro table-dark">Apellidos:</TD>
-                                <TD class="negro table-secondary"> <INPUT TYPE="text" class="form-control" value="{{formulario[2]}}"  name="txtApellido" id="txtApellido" placeholder="Escriba sus Apellidos" SIZE=48
-                                        MAXLENGTH=48></TD>
+                                <TD class="negro table-secondary"> <INPUT TYPE="text" class="form-control" value="{{formulario[2]}}" required name="txtApellido" id="txtApellido" placeholder="Escriba sus Apellidos" SIZE=48
+                                        MAXLENGTH=48 ></TD>
                             <TR>
                             <TR>
                                 <TD class="negro table-dark">Edad:</TD>
-                                <TD class="negro table-secondary"> <INPUT TYPE="number" class="form-control" value="{{formulario[3]}}"  name="txtEdad" id="txtEdad" placeholder="Escriba su Edad" SIZE=48 MAXLENGTH=48>
+                                <TD class="negro table-secondary"> <INPUT TYPE="number" MIN="1" MAX="120" class="form-control" value="{{formulario[3]}}" required name="txtEdad" id="txtEdad" placeholder="Escriba su Edad" SIZE=48 MAXLENGTH=48 >
                                 </TD>
                             <TR>
                             <TR>
                                 <TD class="negro table-dark">Telefono:</TD>
-                                <TD class="negro table-secondary"><INPUT TYPE="number" class="form-control" value="{{formulario[4]}}"  name="txtTelefono" placeholder="Escriba su Numero de Celular" id="txtTelefono" SIZE=19
-                                        MAXLENGTH=19></TD>
+                                <TD class="negro table-secondary"><INPUT TYPE="number" MIN="0900000000" MAX="09000000000" class="form-control" value="{{formulario[4]}}" required name="txtTelefono" placeholder="Escriba su Numero de Celular" id="txtTelefono" SIZE=19
+                                        MAXLENGTH=19 ></TD>
         
                             <TR>
                                 <TD class="negro table-dark">Correo:</TD>
-                                <TD class="negro table-secondary"> <INPUT TYPE="email" class="form-control" value="{{formulario[5]}}"  name="txtCorreo" id="txtCorreo" placeholder="Escriba su Correo" SIZE=20
+                                <TD class="negro table-secondary"> <INPUT TYPE="email" class="form-control" value="{{formulario[5]}}" required name="txtCorreo" id="txtCorreo" placeholder="Escriba su Correo" SIZE=20
                                         MAXLENGTH=20>
                                 </TD>
                             <TR>
@@ -60,7 +60,7 @@
         
                             <TR>
                                 <TD class="negro table-dark">Cual es su opinion sobre el covid-19:</TD>
-                                        <TD class="negro table-secondary"> <INPUT TYPE="text" style="WIDTH: 950px; HEIGHT: 72px" size=12 value="{{formulario[6]}}" class="form-control"   name="txtPregunta1" id="txtPregunta1"
+                                        <TD class="negro table-secondary"> <INPUT TYPE="text" style="WIDTH: 950px; HEIGHT: 72px" size=12 value="{{formulario[6]}}" required class="form-control"   name="txtPregunta1" id="txtPregunta1"
                                                 placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47>
                                         </TD>
                             <TR>
@@ -68,17 +68,19 @@
                                 
                                     <TR>
                                         <TD class="negro table-dark">Cual es su opinion sobre la cuarente:</TD>
-                                                <TD class="negro table-secondary"> <INPUT TYPE="text" style="WIDTH: 950px; HEIGHT: 72px" size=12 value="{{formulario[7]}}" class="form-control"   name="txtPregunta2" id="txtPregunta2"
-                                                        placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47>
+                                                <TD class="negro table-secondary"> <INPUT TYPE="text" style="WIDTH: 950px; HEIGHT: 72px" size=12 value="{{formulario[7]}}" required class="form-control"   name="txtPregunta2" id="txtPregunta2"
+                                                        placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47 >
                                                 </TD>
                                     <TR>
                                     
                                         <TR>
                                             <TD class="negro table-dark">Que metodos de proteccion ante el covid-19 conoce:</TD>
-                                                    <TD class="negro table-secondary"> <INPUT TYPE="text" style="WIDTH: 950px; HEIGHT: 72px" size=1 value="{{formulario[8]}}" class="form-control"   name="txtPregunta3" id="txtPregunta3"
+                                                    <TD class="negro table-secondary"> <INPUT TYPE="text" style="WIDTH: 950px; HEIGHT: 72px" size=1 value="{{formulario[8]}}" required class="form-control"   name="txtPregunta3" id="txtPregunta3"
                                                             placeholder="Escriba su opinion en este espacio." ROWS=2 COLS=47>
                                                     </TD>  
-                                        <TR>                             
+                                        <TR>   
+                                            
+                                            
                                 <!-- <TR>
                                     <TD>Cedula:</TD>
                                     <TD> <INPUT TYPE="text" value="{{formulario[6]}}" class="form-control"   name="txtPregunta1" id="txtPregunta1" SIZE=18
@@ -114,8 +116,8 @@
                                 <TD class="negro table-dark"><B>Pulse aquí:</B></TD>
                                 <TD class="negro table-secondary" ALIGN=CENTER>
                                     <INPUT TYPE="submit" class="btn btn-success" VALUE="Actualizar">
-                                    <INPUT TYPE="reset" class="btn btn-warning" VALUE="Borrar los datos">
-                                    <a class="btn btn-danger" href="/destroy/{{formulario[0]}}">Eliminar Formulario</a>
+                                    <INPUT TYPE="reset" class="btn btn-warning" VALUE="Borrar datos de los campos">
+                                    <a class="btn btn-danger" href="/destroy/{{formulario[0]}}">Eliminar</a>
                                 </TD>
                             </TR>
                             </center>
